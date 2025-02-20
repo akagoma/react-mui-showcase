@@ -1,15 +1,15 @@
 import js from '@eslint/js'
-import globals from 'globals'
+import stylistic from '@stylistic/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
+import prettier from 'eslint-config-prettier'
+import jsdoc from 'eslint-plugin-jsdoc'
+import prettierPlugin from 'eslint-plugin-prettier'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import prettier from 'eslint-config-prettier'
-import prettierPlugin from 'eslint-plugin-prettier'
-import tsParser from '@typescript-eslint/parser'
 import security from 'eslint-plugin-security'
-import stylistic from '@stylistic/eslint-plugin'
-import jsdoc from 'eslint-plugin-jsdoc'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {

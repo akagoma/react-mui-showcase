@@ -1,5 +1,5 @@
-import {Meta, StoryObj} from '@storybook/react'
 import {Pagination} from './Pagination'
+import {Meta, StoryObj} from '@storybook/react'
 
 const meta = {
   title: 'atoms/Pagination',

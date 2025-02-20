@@ -7,5 +7,7 @@ export default {
   trailingComma: 'none',
   bracketSpacing: false,
   endOfLine: 'lf',
-  singleAttributePerLine: false
+  singleAttributePerLine: false,
+  // https://tech-broccoli.life/articles/engineer/use-prettier-plugin-sort-imports
+  plugins: ['@trivago/prettier-plugin-sort-imports']
 }
