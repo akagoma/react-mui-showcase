@@ -12,9 +12,8 @@ interface PaginationProps {
 
 /**
  * Pagination
- *
- * @param {PagenationProps} props
- * @return {JSX.Element} Pagination
+ * @param {PaginationProps} props props
+ * @returns {React.JSX.Element} element
  */
 export const Pagination = (props: PaginationProps): React.JSX.Element => {
   return <MuiPagination count={props.count} color={props.color} variant={props.variant} shape={props.shape} size={props.size} disabled={props.disabled} />
