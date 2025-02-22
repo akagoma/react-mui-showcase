@@ -14,7 +14,7 @@ import tseslint from 'typescript-eslint'
 export default tseslint.config(
   {
     name: '@akagoma/ignores',
-    ignores: ['dist', 'coverage', 'node_modules', '.storybook', '*.config.js']
+    ignores: ['dist', 'coverage', 'report', 'node_modules', '.storybook', '*.config.{js,ts,tsx}', '*.workspace.{js,ts,tsx}', 'vitest.shims.d.ts']
   },
   {
     name: '@akagoma/eslint-config',

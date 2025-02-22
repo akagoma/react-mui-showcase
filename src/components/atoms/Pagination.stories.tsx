@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/react'
-import {userEvent, within, expect} from '@storybook/test'
+import {expect, userEvent, within} from '@storybook/test'
 import {Pagination} from './Pagination'
 
 const meta = {
