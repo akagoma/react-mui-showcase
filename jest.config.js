@@ -12,5 +12,6 @@ export default {
     '^.+\\.(gif|ttf|eot|svg|png)$': 'jest-svg-transformer',
     '\\.(css|less)$': 'identity-obj-proxy'
   },
-  testEnvironment: 'jest-environment-jsdom'
+  testEnvironment: 'jest-environment-jsdom',
+  coverageDirectory: './coverage/test'
 }

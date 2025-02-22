@@ -8,7 +8,7 @@ export default defineConfig({
   test: {
     include: ['src/**/*.{stories}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     coverage: {
-      reportsDirectory: './report/coverage/story'
+      reportsDirectory: './coverage/story'
     }
   }
 })
