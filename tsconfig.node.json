@@ -9,7 +9,11 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist",
     "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "moduleDetection": "force",
     "noEmit": true,
 
