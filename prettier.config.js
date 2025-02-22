@@ -8,6 +8,9 @@ export default {
   bracketSpacing: false,
   endOfLine: 'lf',
   singleAttributePerLine: false,
-  // https://tech-broccoli.life/articles/engineer/use-prettier-plugin-sort-imports
+  importOrder: ['^(react/(.*)$)|^(react$)', '^@mui/(.*)$', '<THIRD_PARTY_MODULES>', '^\.\./', '^[./]'],
+  importOrderSeparation: false,
+  importOrderSortSpecifiers: true,
+  importOrderCaseInsensitive: false,
   plugins: ['@trivago/prettier-plugin-sort-imports']
 }

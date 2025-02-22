@@ -1,8 +1,9 @@
-import {Pagination as MuiPagination, PaginationProps as MuiPaginationProps} from '@mui/material'
 import React from 'react'
+import {Pagination as MuiPagination, PaginationProps as MuiPaginationProps} from '@mui/material'
 
 interface PaginationProps {
   count: number
+  onChange?: (page: number) => void
   disabled?: boolean
   color?: MuiPaginationProps['color']
   shape?: MuiPaginationProps['shape']
@@ -16,5 +17,11 @@ interface PaginationProps {
  * @returns {React.JSX.Element} element
  */
 export const Pagination = (props: PaginationProps): React.JSX.Element => {
-  return <MuiPagination count={props.count} color={props.color} variant={props.variant} shape={props.shape} size={props.size} disabled={props.disabled} />
+  const onChange = (_: React.ChangeEvent<unknown>, page: number) => {
+    if (props.onChange) {
+      props.onChange(page)
+    }
+  }
+
+  return <MuiPagination count={props.count} onChange={onChange} disabled={props.disabled} color={props.color} shape={props.shape} variant={props.variant} size={props.size} />
 }

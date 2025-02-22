@@ -1,5 +1,5 @@
-import {Pagination} from './Pagination'
 import {Meta, StoryObj} from '@storybook/react'
+import {Pagination} from './Pagination'
 
 const meta = {
   title: 'atoms/Pagination',
@@ -15,6 +15,9 @@ export default meta
 
 export const Story: StoryObj<typeof Pagination> = {
   args: {
-    count: 10
+    count: 10,
+    onChange: (page: number) => {
+      console.log(page)
+    }
   }
 }
