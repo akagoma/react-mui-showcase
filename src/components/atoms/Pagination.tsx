@@ -2,9 +2,9 @@ import React from 'react'
 import {Pagination as MuiPagination, PaginationProps as MuiPaginationProps} from '@mui/material'
 
 interface PaginationProps {
-  count: number
+  count: MuiPaginationProps['count']
   onChange?: (page: number) => void
-  disabled?: boolean
+  disabled?: MuiPaginationProps['disabled']
   color?: MuiPaginationProps['color']
   shape?: MuiPaginationProps['shape']
   variant?: MuiPaginationProps['variant']
