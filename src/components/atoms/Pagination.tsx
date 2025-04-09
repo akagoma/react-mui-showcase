@@ -1,7 +1,7 @@
 import React from 'react'
 import {Pagination as MuiPagination, PaginationProps as MuiPaginationProps} from '@mui/material'
 
-interface PaginationProps {
+export interface PaginationProps {
   count: MuiPaginationProps['count']
   onChange?: (page: number) => void
   disabled?: MuiPaginationProps['disabled']

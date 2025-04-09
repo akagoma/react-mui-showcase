@@ -14,7 +14,7 @@ import tseslint from 'typescript-eslint'
 export default tseslint.config(
   {
     name: '@akagoma/ignores',
-    ignores: ['dist', 'coverage', 'report', 'node_modules', '.storybook', '*.config.{js,ts,tsx}', '*.workspace.{js,ts,tsx}', 'vitest.shims.d.ts']
+    ignores: ['dist', 'coverage', 'report', 'node_modules', '.storybook', 'storybook-static', '*.config.{js,ts,tsx}', '*.workspace.{js,ts,tsx}', 'vitest.shims.d.ts']
   },
   {
     name: '@akagoma/eslint-config',
@@ -54,6 +54,10 @@ export default tseslint.config(
       ...react.configs.recommended.rules,
       ...jsdoc.configs.recommended.rules,
 
+      // JSDoc
+      'jsdoc/tag-lines': ['error', 'never', {applyToEndTag: false, startLines: 1, count: 0}],
+      'jsdoc/no-undefined-types': 'off',
+
       // prettier
       'prettier/prettier': 'error',
 
@@ -92,6 +96,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-member-access': 'warn',
       '@typescript-eslint/no-unsafe-return': 'warn',
       '@typescript-eslint/no-unsafe-call': 'warn',
+      '@typescript-eslint/no-unnecessary-type-parameters': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
@@ -116,6 +121,27 @@ export default tseslint.config(
       'react/react-in-jsx-scope': 'off',
       'react/jsx-indent': ['error', 2],
       '@stylistic/jsx-quotes': ['error', 'prefer-single']
+    }
+  },
+  {
+    name: '@akagoma/storybook',
+    files: ['**/*.stories.{js,ts,tsx}'],
+    plugins: {
+      'react-hooks': reactHooks
+    },
+    rules: {
+      // storiesではhooksルールは無視しても構わない
+      'react-hooks/rules-of-hooks': 'off',
+      // storiesではanyも許容
+      '@typescript-eslint/no-unsafe-assignment': 'off'
+    }
+  },
+  {
+    name: '@akagoma/test',
+    files: ['**/*.test.{js,ts,tsx}', 'src/test-utils.tsx'],
+    rules: {
+      // testではanyも許容
+      '@typescript-eslint/no-unsafe-assignment': 'off'
     }
   }
 )

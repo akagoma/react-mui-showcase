@@ -1,11 +1,11 @@
 import React from 'react'
-import {Card as MuiCard, CardActionArea as MuiCardActionArea} from '@mui/material'
+import {CardActions, CardContent, CardMedia, CardMediaProps, Card as MuiCard, CardActionArea as MuiCardActionArea} from '@mui/material'
 
-interface CardProps {
+export interface CardProps {
   children: React.ReactNode
-}
-
-interface ActionCardProps extends CardProps {
+  image?: CardMediaProps['image']
+  height?: number
+  actions?: React.ReactNode
   onClick?: () => void
 }
 
@@ -15,18 +15,26 @@ interface ActionCardProps extends CardProps {
  * @returns {React.JSX.Element} element
  */
 export const Card = (props: CardProps): React.JSX.Element => {
-  return <MuiCard>{props.children}</MuiCard>
-}
+  const media = props.image ? <CardMedia component='img' image={props.image} sx={{height: props.height}}></CardMedia> : <></>
+  const actions = props.actions ? <CardActions>{props.actions}</CardActions> : <></>
+  const contents = <CardContent>{props.children}</CardContent>
 
-/**
- * ActionCard
- * @param {ActionCardProps} props props
- * @returns {React.JSX.Element} element
- */
-export const ActionCard = (props: ActionCardProps): React.JSX.Element => {
+  const body = props.onClick ? (
+    <MuiCardActionArea onClick={props.onClick}>
+      {media}
+      {contents}
+    </MuiCardActionArea>
+  ) : (
+    <>
+      {media}
+      {contents}
+    </>
+  )
+
   return (
-    <Card>
-      <MuiCardActionArea onClick={props.onClick}>{props.children}</MuiCardActionArea>
-    </Card>
+    <MuiCard>
+      {body}
+      {actions}
+    </MuiCard>
   )
 }
