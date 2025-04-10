@@ -13,6 +13,7 @@ export interface PaginationProps {
 
 /**
  * Pagination
+ *
  * @param {PaginationProps} props props
  * @returns {React.JSX.Element} element
  */

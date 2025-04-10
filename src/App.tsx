@@ -5,6 +5,7 @@ import viteLogo from '/vite.svg'
 
 /**
  * App
+ *
  * @returns {React.JSX.Element} App
  */
 function App(): React.JSX.Element {
