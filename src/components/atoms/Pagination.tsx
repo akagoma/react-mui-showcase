@@ -3,6 +3,7 @@ import {Pagination as MuiPagination, PaginationProps as MuiPaginationProps} from
 
 export interface PaginationProps {
   count: MuiPaginationProps['count']
+  page?: MuiPaginationProps['page']
   onChange?: (page: number) => void
   disabled?: MuiPaginationProps['disabled']
   color?: MuiPaginationProps['color']
@@ -24,5 +25,5 @@ export const Pagination = (props: PaginationProps): React.JSX.Element => {
     }
   }
 
-  return <MuiPagination count={props.count} onChange={onChange} disabled={props.disabled} color={props.color} shape={props.shape} variant={props.variant} size={props.size} />
+  return <MuiPagination count={props.count} page={props.page} onChange={onChange} disabled={props.disabled} color={props.color} shape={props.shape} variant={props.variant} size={props.size} />
 }

@@ -1,25 +1,29 @@
 import React from 'react'
-import {Grid} from '@mui/material'
+import {Box, Grid, GridProps} from '@mui/material'
 import {Card, CardProps} from '../atoms/Card'
 import {Pagination, PaginationProps} from '../atoms/Pagination'
 
 interface ShowcaseProps {
   page: number
   count: number
+  height?: 'auto' | number
   onChange?: (page: number) => void
   onSelect?: (id: string) => void
   color?: PaginationProps['color']
   shape?: PaginationProps['shape']
   variant?: PaginationProps['variant']
   size?: PaginationProps['size']
+  gridSize?: GridProps['size']
   items: Items[]
 }
 
 interface Items {
   id: string
   children: CardProps['children']
-  onClick?: CardProps['onClick']
   image?: CardProps['image']
+  height?: CardProps['height']
+  actions?: CardProps['actions']
+  onClick?: CardProps['onClick']
 }
 
 /**
@@ -33,9 +37,18 @@ export const Showcase = (props: ShowcaseProps): React.JSX.Element => {
   const endIndex = Math.min(props.page * props.count, props.items.length) - 1
   const items = props.items.slice(startIndex, endIndex + 1)
 
+  // GridのmarginBottomはspacing=2相当のサイズ
   return (
-    <>
-      <Grid container spacing={2}>
+    <Box
+      sx={{
+        height: props.height,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }}
+    >
+      <Grid container spacing={2} marginBottom='16px'>
         {items.map((e) => {
           const handleClick = () => {
             if (props.onSelect) {
@@ -47,15 +60,15 @@ export const Showcase = (props: ShowcaseProps): React.JSX.Element => {
           }
 
           return (
-            <Grid key={e.id} size={{xs: 12, sm: 6, md: 4}}>
-              <Card image={e.image} onClick={handleClick}>
+            <Grid key={e.id} size={props.gridSize}>
+              <Card image={e.image} onClick={props.onSelect && e.onClick ? handleClick : undefined} actions={e.actions} height={e.height}>
                 {e.children}
               </Card>
             </Grid>
           )
         })}
       </Grid>
-      <Pagination count={props.items.length / props.count}></Pagination>
-    </>
+      <Pagination count={Math.ceil(props.items.length / props.count)} page={props.page} onChange={props.onChange} color={props.color} shape={props.shape} variant={props.variant} size={props.size}></Pagination>
+    </Box>
   )
 }

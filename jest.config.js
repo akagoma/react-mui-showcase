@@ -15,11 +15,5 @@ export default {
   },
   testEnvironment: 'jest-environment-jsdom',
   coverageDirectory: './coverage/test',
-  collectCoverageFrom: [
-    'src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
-    '!src/**/*.stories.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
-    '!src/**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
-    '!src/**/*.spec.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
-    '!**/node_modules/**'
-  ]
+  collectCoverageFrom: ['src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', '!src/**/*.stories.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', '!src/**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', '!src/**/*.spec.{js,mjs,cjs,ts,mts,cts,jsx,tsx}', '!**/node_modules/**']
 }
