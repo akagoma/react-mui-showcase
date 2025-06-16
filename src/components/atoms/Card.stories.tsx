@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/react'
-import {expect, userEvent, within} from '@storybook/test'
+import {expect, fn, userEvent, within} from '@storybook/test'
 import {Card} from './Card'
 
 const meta = {
@@ -48,5 +48,22 @@ export const Actions: StoryObj<typeof Card> = {
     const canvas = within(canvasElement)
     await expect(canvas.getByText('children')).toBeInTheDocument()
     await expect(canvas.getByText('actions')).toBeInTheDocument()
+  }
+}
+
+export const OnClick: StoryObj<typeof Card> = {
+  args: {
+    children: <span>children</span>,
+    onClick: fn()
+  },
+  play: async ({canvasElement, args}) => {
+    // https://storybook.js.org/docs/writing-tests/component-testing
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText('children')).toBeInTheDocument()
+
+    const user = userEvent.setup()
+
+    await user.click(canvas.getByText('children'))
+    await expect(args.onClick).toHaveBeenCalledTimes(1)
   }
 }
